@@ -17,4 +17,5 @@ export const COLOR = {
 	primary: '#2196f3',
 	secondary: '#eeeeee',
 	white: '#fafafa',
+	gray: 'gray',
 };
