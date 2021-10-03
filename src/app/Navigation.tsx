@@ -1,8 +1,10 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import { MyHeader } from 'src/components/organisms/Header';
+import { DrawerMenu } from 'src/components/organisms/DrawerMenu';
 
 import { HomeScreen } from 'src/screens/Home/Home.screen';
 import { RegisterScreen } from 'src/screens/Auth/Register.screen';
@@ -11,11 +13,27 @@ import { RegisterScreen } from 'src/screens/Auth/Register.screen';
  * ナビゲーション名 & 遷移時に渡すパラメータ
  */
 export type RouteParamType = {
+	Top: undefined;
 	Home: undefined;
 	Register: undefined;
 };
 
 const Stack = createStackNavigator<RouteParamType>();
+const Drawer = createDrawerNavigator();
+
+const DrawerNavigation = () => {
+	return (
+		<Drawer.Navigator
+			drawerContent={props => <DrawerMenu {...props} />}
+			screenOptions={({ route }) => ({
+				header: () => <MyHeader route={route} options={'option'} />,
+				drawerType: 'front',
+			})}
+		>
+			<Drawer.Screen name="Home" component={HomeScreen} />
+		</Drawer.Navigator>
+	);
+};
 
 export const Navigation = () => {
 	return (
@@ -32,7 +50,7 @@ export const Navigation = () => {
 					),
 				})}
 			>
-				<Stack.Screen name="Home" component={HomeScreen} />
+				<Stack.Screen name="Top" component={DrawerNavigation} options={{ headerShown: false }} />
 				<Stack.Screen name="Register" component={RegisterScreen} />
 			</Stack.Navigator>
 		</NavigationContainer>
