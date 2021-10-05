@@ -3,6 +3,7 @@ import { FieldError } from 'react-hook-form';
 export type ButtonType = {
 	onPress: () => void;
 	title?: string;
+	isDanger?: boolean;
 };
 
 export type InputType = {

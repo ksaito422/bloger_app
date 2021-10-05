@@ -41,3 +41,9 @@ export const LoginSchema = yup.object().shape({
 		.matches(/(?=.*[0-9])/, PASSWORD_NUMBER)
 		.required(`パスワード${REQUIRED}`),
 });
+
+export const ProfileSchema = yup.object().shape({
+	name: yup //
+		.string()
+		.required(`ニックネーム${REQUIRED}`),
+});
