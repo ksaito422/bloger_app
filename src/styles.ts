@@ -18,4 +18,5 @@ export const COLOR = {
 	secondary: '#eeeeee',
 	white: '#fafafa',
 	gray: 'gray',
+	red: 'red',
 };

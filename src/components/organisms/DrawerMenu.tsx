@@ -6,6 +6,7 @@ import { useRecoilState } from 'recoil';
 
 import { authStateAtom } from 'src/store/atoms';
 import { COLOR, SPACE } from 'src/styles';
+import { useNav } from 'src/hooks/useNav';
 
 import { Avatar } from 'src/components/common/Avatar';
 
@@ -19,14 +20,13 @@ type AvatarType = {
 };
 
 export const DrawerMenu = ({ navigation }: any) => {
+	const { navigate } = useNav();
 	const [authState, setAuthState] = useRecoilState(authStateAtom);
 
 	const allMenus: MenuItem[] = [
 		{
 			title: 'マイページ',
-			onPress: () => {
-				console.log('マイページ');
-			},
+			onPress: () => navigate('MyPage'),
 		},
 		{
 			title: '利用規約',

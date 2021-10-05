@@ -8,6 +8,7 @@ import { DrawerMenu } from 'src/components/organisms/DrawerMenu';
 
 import { HomeScreen } from 'src/screens/Home/Home.screen';
 import { RegisterScreen } from 'src/screens/Auth/Register.screen';
+import { MyPageScreen } from 'src/screens/User/MyPage.screen';
 
 /**
  * ナビゲーション名 & 遷移時に渡すパラメータ
@@ -16,6 +17,7 @@ export type RouteParamType = {
 	Top: undefined;
 	Home: undefined;
 	Register: undefined;
+	MyPage: undefined;
 };
 
 const Stack = createStackNavigator<RouteParamType>();
@@ -52,6 +54,7 @@ export const Navigation = () => {
 			>
 				<Stack.Screen name="Top" component={DrawerNavigation} options={{ headerShown: false }} />
 				<Stack.Screen name="Register" component={RegisterScreen} />
+				<Stack.Screen name="MyPage" component={MyPageScreen} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
