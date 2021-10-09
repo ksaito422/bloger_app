@@ -19,4 +19,5 @@ export const COLOR = {
 	white: '#fafafa',
 	gray: 'gray',
 	red: 'red',
+	black: 'black',
 };
