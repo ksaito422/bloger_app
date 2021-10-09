@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+import { string } from 'yup/lib/locale';
 
 const REQUIRED = 'を入力してください。';
 const EMAIL = '正しいメールアドレスを入力してください。';
@@ -46,4 +47,13 @@ export const ProfileSchema = yup.object().shape({
 	name: yup //
 		.string()
 		.required(`ニックネーム${REQUIRED}`),
+});
+
+export const ArticlePostSchema = yup.object().shape({
+	title: yup //
+		.string()
+		.required(`タイトル${REQUIRED}`),
+	content: yup //object
+		.string()
+		.required(`内容${REQUIRED}`),
 });

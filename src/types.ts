@@ -11,6 +11,9 @@ export type InputType = {
 	placeholder: string;
 	onChangeText: any;
 	error?: string;
+	multiline?: boolean;
+	keyboardType?: 'default' | 'numeric' | 'email-address';
+	autoCapitalize?: 'none' | 'words' | 'sentences' | 'characters';
 };
 
 export type RhfInputType = {
@@ -19,6 +22,9 @@ export type RhfInputType = {
 	placeHolder: string;
 	control: any;
 	error?: FieldError;
+	multiline?: boolean;
+	keyboardType?: 'default' | 'numeric' | 'email-address';
+	autoCapitalize?: 'none' | 'words' | 'sentences' | 'characters';
 };
 
 export type SpacingType = {
@@ -28,4 +34,9 @@ export type SpacingType = {
 export type ArticleBoxType = {
 	onPress: () => void;
 	title: string;
+};
+
+export type ArticlePostType = {
+	title?: string;
+	content?: string;
 };
