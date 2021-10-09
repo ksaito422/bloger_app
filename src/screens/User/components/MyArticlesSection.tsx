@@ -1,6 +1,27 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, ScrollView, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { SPACE, COLOR } from 'src/styles';
+
+import { ArticleBox } from 'src/components/organisms/ArticleBox';
+import { Spacing } from 'src/components/common/Spacing';
 
 export const MyArticlesSection = () => {
-	return <Text>自分の記事一覧</Text>;
+	return (
+		<SafeAreaView edges={['bottom']} style={styles.safeAreaView}>
+			<ScrollView>
+				<Spacing vertical={2} />
+				<ArticleBox title="タイトルが入ります" onPress={() => console.log('onPress')} />
+			</ScrollView>
+		</SafeAreaView>
+	);
 };
+
+const styles = StyleSheet.create({
+	safeAreaView: {
+		flex: 1,
+		paddingHorizontal: SPACE.primary,
+		backgroundColor: COLOR.secondary,
+	},
+});
