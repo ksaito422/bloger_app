@@ -3,19 +3,16 @@ import { ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { SPACE, COLOR } from 'src/styles';
-import { useNav } from 'src/hooks/useNav';
 
-import { ArticleBox } from 'src/components/organisms/ArticleBox';
+import { ArticlePost } from 'src/components/organisms/ArticlePost';
 import { Spacing } from 'src/components/common/Spacing';
 
-export const MyArticlesSection = () => {
-	const { navigate } = useNav();
-
+export const ArticleEditScreen = () => {
 	return (
 		<SafeAreaView edges={['bottom']} style={styles.safeAreaView}>
-			<ScrollView>
+			<ScrollView contentContainerStyle={styles.scrollView}>
 				<Spacing vertical={2} />
-				<ArticleBox title="タイトルが入ります" onPress={() => navigate('ArticleDetail')} />
+				<ArticlePost title="テスト" content="テストです" />
 			</ScrollView>
 		</SafeAreaView>
 	);
@@ -26,5 +23,8 @@ const styles = StyleSheet.create({
 		flex: 1,
 		paddingHorizontal: SPACE.primary,
 		backgroundColor: COLOR.secondary,
+	},
+	scrollView: {
+		flexGrow: 1,
 	},
 });
