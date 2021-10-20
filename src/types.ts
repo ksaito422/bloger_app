@@ -29,3 +29,9 @@ export type ArticleBoxType = {
 	onPress: () => void;
 	title: string;
 };
+
+// ログイン時のレスポンス
+export type UserType = {
+	id: string;
+	name: string;
+};
