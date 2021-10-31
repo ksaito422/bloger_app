@@ -36,6 +36,12 @@ export type ArticleBoxType = {
 	title: string;
 };
 
+// ログイン時のレスポンス
+export type UserType = {
+	id: string;
+	name: string;
+}
+
 export type ArticlePostType = {
 	title?: string;
 	content?: string;

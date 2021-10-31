@@ -1,6 +1,11 @@
 import { atom } from 'recoil';
 
 export const authStateAtom = atom({
-	key: 'authState',
+	key: 'authStateAtom',
 	default: false,
+});
+
+export const userIdAtom = atom({
+	key: 'userIdAtom',
+	default: '',
 });
