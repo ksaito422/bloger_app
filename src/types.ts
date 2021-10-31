@@ -40,7 +40,7 @@ export type ArticleBoxType = {
 export type UserType = {
 	id: string;
 	name: string;
-}
+};
 
 export type ArticlePostType = {
 	title?: string;
