@@ -5,6 +5,7 @@ import { Divider, ListItem } from 'react-native-elements';
 import { useRecoilState } from 'recoil';
 
 import { authStateAtom } from 'src/store/atoms';
+import { useLogout } from 'src/hooks/useLogout';
 import { COLOR, SPACE } from 'src/styles';
 import { useNav } from 'src/hooks/useNav';
 
@@ -28,6 +29,7 @@ type AvatarType = {
 export const DrawerMenu = ({ navigation }: any) => {
 	const { navigate } = useNav();
 	const [authState, setAuthState] = useRecoilState(authStateAtom);
+	const { logout } = useLogout();
 
 	const allMenus: MenuItem[] = [
 		{
@@ -58,7 +60,7 @@ export const DrawerMenu = ({ navigation }: any) => {
 		},
 		{
 			title: 'ログアウト',
-			onPress: () => setAuthState(false),
+			onPress: () => logout(),
 		},
 	];
 
