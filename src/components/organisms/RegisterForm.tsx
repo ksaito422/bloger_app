@@ -6,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { RegisterSchema } from 'src/schema';
 import { COLOR } from 'src/styles';
 import { useRegister } from 'src/hooks/useRegister';
+import { useNav } from 'src/hooks/useNav';
 import { RhfInput } from 'src/components/form/RhfInput';
 import { Button } from 'src/components/button/Button';
 import { Spacing } from 'src/components/common/Spacing';
@@ -19,8 +20,12 @@ type FormInfoType = {
 export const RegisterForm: FC = () => {
 	const { control, handleSubmit } = useForm({ resolver: yupResolver(RegisterSchema) });
 	const { register } = useRegister();
+	const { goBack } = useNav();
 
-	const onSubmit: SubmitHandler<FormInfoType> = formInfo => register(formInfo);
+	const onSubmit: SubmitHandler<FormInfoType> = async formInfo => {
+		await register(formInfo);
+		await goBack();
+	};
 
 	return (
 		<View style={styles.container}>

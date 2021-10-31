@@ -8,9 +8,13 @@ export const AuthStateProvider: FC = ({ children }) => {
 	const [initializing, setInitializing] = useState(true);
 	const setAuthState = useSetRecoilState(authStateAtom);
 
-	const onAuthStateChanged = () => {
+	const onAuthStateChanged = user => {
+		console.log(user.email);
 		initializing && setInitializing(false);
-		setAuthState(true);
+
+		if (user.email) {
+			setAuthState(true);
+		}
 	};
 
 	useEffect(() => {
