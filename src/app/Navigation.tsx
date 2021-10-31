@@ -10,6 +10,8 @@ import { HomeScreen } from 'src/screens/Home/Home.screen';
 import { RegisterScreen } from 'src/screens/Auth/Register.screen';
 import { MyPageScreen } from 'src/screens/User/MyPage.screen';
 import { ArticleDetailScreen } from 'src/screens/Article/ArticleDetail.screen';
+import { ArticleManagementScreen } from 'src/screens/User/ArticleManagement.screen';
+import { ArticleEditScreen } from 'src/screens/Article/ArticleEdit.screen';
 
 /**
  * ナビゲーション名 & 遷移時に渡すパラメータ
@@ -20,6 +22,8 @@ export type RouteParamType = {
 	Register: undefined;
 	MyPage: undefined;
 	ArticleDetail: undefined;
+	ArticleManagement: undefined;
+	ArticleEdit: undefined;
 };
 
 const Stack = createStackNavigator<RouteParamType>();
@@ -58,6 +62,8 @@ export const Navigation = () => {
 				<Stack.Screen name="Register" component={RegisterScreen} />
 				<Stack.Screen name="MyPage" component={MyPageScreen} />
 				<Stack.Screen name="ArticleDetail" component={ArticleDetailScreen} />
+				<Stack.Screen name="ArticleManagement" component={ArticleManagementScreen} />
+				<Stack.Screen name="ArticleEdit" component={ArticleEditScreen} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

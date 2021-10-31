@@ -3,7 +3,15 @@ import { Input } from 'src/components/form/Input';
 import { Controller } from 'react-hook-form';
 import { RhfInputType } from 'src/types';
 
-export const RhfInput: FC<RhfInputType> = ({ name, defaultValue, placeHolder, control }) => {
+export const RhfInput: FC<RhfInputType> = ({
+	name,
+	defaultValue,
+	placeHolder,
+	control,
+	multiline,
+	keyboardType,
+	autoCapitalize,
+}) => {
 	return (
 		<Controller
 			control={control}
@@ -16,6 +24,9 @@ export const RhfInput: FC<RhfInputType> = ({ name, defaultValue, placeHolder, co
 						value={value}
 						placeholder={placeHolder}
 						error={errors[name]?.message}
+						multiline={multiline}
+						keyboardType={keyboardType}
+						autoCapitalize={autoCapitalize}
 					/>
 				);
 			}}

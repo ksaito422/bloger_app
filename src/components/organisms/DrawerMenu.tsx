@@ -11,7 +11,13 @@ import { useNav } from 'src/hooks/useNav';
 import { Avatar } from 'src/components/common/Avatar';
 
 interface MenuItem {
-	title: 'マイページ' | '利用規約' | 'プライバシーポリシー' | 'お問い合わせ' | 'ログアウト';
+	title:
+		| 'マイページ'
+		| '記事の管理'
+		| '利用規約'
+		| 'プライバシーポリシー'
+		| 'お問い合わせ'
+		| 'ログアウト';
 	onPress: () => void;
 }
 
@@ -27,6 +33,10 @@ export const DrawerMenu = ({ navigation }: any) => {
 		{
 			title: 'マイページ',
 			onPress: () => navigate('MyPage'),
+		},
+		{
+			title: '記事の管理',
+			onPress: () => navigate('ArticleManagement'),
 		},
 		{
 			title: '利用規約',
@@ -57,7 +67,14 @@ export const DrawerMenu = ({ navigation }: any) => {
 	 */
 	const filteredMenu: MenuItem[] = allMenus.filter(menu => {
 		const menuItems = authState
-			? ['マイページ', '利用規約', 'プライバシーポリシー', 'お問い合わせ', 'ログアウト']
+			? [
+					'マイページ',
+					'記事の管理',
+					'利用規約',
+					'プライバシーポリシー',
+					'お問い合わせ',
+					'ログアウト',
+			  ]
 			: ['利用規約', 'プライバシーポリシー', 'お問い合わせ'];
 
 		return menuItems.includes(menu.title);

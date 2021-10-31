@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet, Platform } from 'react-native';
+import { Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -19,4 +19,5 @@ export const COLOR = {
 	white: '#fafafa',
 	gray: 'gray',
 	red: 'red',
+	black: 'black',
 };

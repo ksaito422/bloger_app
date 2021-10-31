@@ -23,8 +23,14 @@ export const LoginForm: FC = () => {
 	return (
 		<View>
 			<View>
-				<RhfInput name="email" placeHolder="email" control={control} />
-				<RhfInput name="password" placeHolder="password" control={control} />
+				<RhfInput
+					name="email"
+					placeHolder="email"
+					control={control}
+					autoCapitalize="none"
+					keyboardType="email-address"
+				/>
+				<RhfInput name="password" placeHolder="password" control={control} autoCapitalize="none" />
 			</View>
 			<Button title="ログイン" onPress={handleSubmit(onSubmit)} />
 		</View>
