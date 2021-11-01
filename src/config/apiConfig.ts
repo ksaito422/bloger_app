@@ -7,7 +7,7 @@ export const API = axiosBase.create({
 		'X-Requested-With': 'XMLHttpRequest',
 	},
 	responseType: 'json',
-	timeout: 1000,
+	timeout: 1500,
 	withCredentials: true,
 });
 
