@@ -1,13 +1,16 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import useSWR from 'swr';
+import { useRecoilValue } from 'recoil';
 
 import { ProfileSchema } from 'src/schema';
 import { SPACE, COLOR } from 'src/styles';
 import { useDeleteUser } from 'src/hooks/useDeleteUser';
-
+import { EP, fetcherGet } from 'src/services/fetcher';
+import { userIdAtom } from 'src/store/atoms';
 import { Spacing } from 'src/components/common/Spacing';
 import { Avatar } from 'src/components/common/Avatar';
 import { ProfileInput } from 'src/components/form/ProfileInput';
@@ -16,6 +19,9 @@ import { Button } from 'src/components/button/Button';
 export const MyPageScreen = () => {
 	const { control } = useForm({ resolver: yupResolver(ProfileSchema) });
 	const { deleteUser } = useDeleteUser();
+	const userId = useRecoilValue(userIdAtom);
+
+	const { data, error } = useSWR<Event>(EP.user(userId), fetcherGet);
 
 	return (
 		<SafeAreaView edges={['bottom']} style={styles.safeAreaView}>
@@ -30,14 +36,14 @@ export const MyPageScreen = () => {
 
 				<ProfileInput
 					name="ニックネーム"
-					defaultValue="Alex"
+					defaultValue={data?.name}
 					placeHolder="ニックネーム"
 					control={control}
 				/>
 
 				<ProfileInput
 					name="メールアドレス"
-					defaultValue="kt.saitooo@gmail.com"
+					defaultValue={data?.email}
 					placeHolder="メールアドレス"
 					control={control}
 				/>
