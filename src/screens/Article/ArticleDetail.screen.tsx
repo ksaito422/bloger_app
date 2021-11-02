@@ -8,8 +8,10 @@ import { SPACE, COLOR } from 'src/styles';
 
 import { Spacing } from 'src/components/common/Spacing';
 
-export const ArticleDetailScreen = () => {
+export const ArticleDetailScreen = ({ route }) => {
 	const { navigate } = useNav();
+	const routeParams = route.params;
+
 	return (
 		<SafeAreaView edges={['bottom']} style={styles.safeAreaView}>
 			<ScrollView>
