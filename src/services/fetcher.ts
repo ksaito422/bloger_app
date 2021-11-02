@@ -33,19 +33,20 @@ export const fetcherGetWithoutToken = (url: any, params: string = '{}') => {
 	return response;
 };
 
-export const fetcherGet = (url: string, params: string = '{}') => {
-	const idToken = auth().currentUser?.getIdToken();
+export const fetcherGet = async (url: string, params: string = '{}') => {
+	const idToken = await auth().currentUser?.getIdToken();
 
-	const response = API.get(url, {
+	const response = await API.get(url, {
 		headers: { Authorization: 'Bearer' + ' ' + idToken },
 		params: JSON.parse(params),
 	})
 		.then(res => {
+			console.log(res.data);
 			return res.data;
 		})
 		.catch(err => {
 			console.log('>>> GET [ERROR]', err.message, url, err.response);
 		});
 
-	return response;
+	return await response;
 };
