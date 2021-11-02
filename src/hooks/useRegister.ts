@@ -41,6 +41,7 @@ export const useRegister = () => {
 				}
 			)
 				.then(res => {
+					console.log('>>> RES ', res);
 					return res.data;
 				})
 				.catch(e => {

@@ -32,13 +32,19 @@ export const useLogin = () => {
 
 			console.log('>>> ID_TOKEN ', idToken);
 
-			const result = await API.post<UserType>('api/v1/auth/login', '', {
-				headers: { Authorization: 'Bearer' + ' ' + idToken },
-			})
+			const result = await API.post<UserType>(
+				'api/v1/auth/login',
+				{},
+				{
+					headers: { Authorization: 'Bearer' + ' ' + idToken },
+				}
+			)
 				.then(res => {
+					console.log('>>> RES ', res);
 					return res.data;
 				})
 				.catch(e => {
+					console.log(e);
 					throw new Error(e);
 				});
 
