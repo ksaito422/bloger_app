@@ -43,6 +43,8 @@ export type UserType = {
 };
 
 export type ArticlePostType = {
+	id?: string;
 	title?: string;
 	content?: string;
+	isEdit?: boolean;
 };
