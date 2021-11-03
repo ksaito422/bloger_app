@@ -36,7 +36,15 @@ export const ArticleDetailScreen = ({ route }) => {
 							{userId === data?.user.id && (
 								// 本人の記事の場合、編集・削除アイコンを表示する
 								<>
-									<Icon name="edit" size={20} onPress={() => navigate('ArticleEdit')} />
+									<Icon
+										name="edit"
+										size={20}
+										onPress={() =>
+											navigate('ArticleEdit', {
+												data,
+											})
+										}
+									/>
 									<Icon name="delete-outline" size={20} onPress={() => onPressDelete(data?.id)} />
 								</>
 							)}

@@ -7,12 +7,19 @@ import { SPACE, COLOR } from 'src/styles';
 import { ArticlePost } from 'src/components/organisms/ArticlePost';
 import { Spacing } from 'src/components/common/Spacing';
 
-export const ArticleEditScreen = () => {
+export const ArticleEditScreen = ({ route }) => {
+	const routeParams = route.params.data;
+
 	return (
 		<SafeAreaView edges={['bottom']} style={styles.safeAreaView}>
 			<ScrollView contentContainerStyle={styles.scrollView}>
 				<Spacing vertical={2} />
-				<ArticlePost title="テスト" content="テストです" />
+				<ArticlePost
+					title={routeParams.title}
+					content={routeParams.content}
+					id={routeParams.id}
+					isEdit
+				/>
 			</ScrollView>
 		</SafeAreaView>
 	);

@@ -47,5 +47,24 @@ export const useArticle = () => {
 		}
 	};
 
-	return { postArticle, deleteArticle };
+	const putArticle = async (formInfo: ArticlePostType, articleId: string) => {
+		try {
+			const idToken = await auth().currentUser?.getIdToken();
+
+			await API.put(EP.putArticle(articleId), formInfo, {
+				headers: { Authorization: 'Bearer' + ' ' + idToken },
+			})
+				.then(res => {
+					return res;
+				})
+				.catch(e => {
+					console.log(e);
+					throw new Error(e);
+				});
+		} catch (e) {
+			console.log(e);
+		}
+	};
+
+	return { postArticle, deleteArticle, putArticle };
 };
